@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block body %}
+{% load static %}
+<h1 class="display-4">Admin Personal Blog</h1>
+<div class="container create-link">
+  <a href="{% url 'create' %}" class="create-link">
+    <button class="btn btn-primary">Create Blogs</button>
+  </a>
+</div>
+<div class="card-container">
+  {% for task in tasks %}
+
+  <!-- From Uiverse.io by alexruix -->
+  <div class="card">
+    <div class="card-details">
+      <p class="text-title">{{ task.title }}</p>
+      <p>Created @ {{ task.createdAt }}</p>
+      <a href="{% url 'edit' task.id %}">
+        <button class="btn btn-primary">Edit</button>
+      </a>
+    </div>
+    <a href="{% url 'delete' task.id %}">
+      <button class="btn btn-danger card-button">Delete</button>
+    </a>
+  </div>
+
+  {% endfor %}
+</div>
+{% endblock %}

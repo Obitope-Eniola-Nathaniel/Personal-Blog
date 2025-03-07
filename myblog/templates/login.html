@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container mt-5">
+    <div class="row">
+        {% comment %} Offset to move to center {% endcomment %}
+        <div class="col-md-4 offset-md-4">
+            <div class="card">
+                <div class="card-header text-white bg-info">
+                    <div class="card-title">
+                        Login
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div class="form-control">
+                                 {{ field.name }}
+                                {{ field }}
+                            </div>
+                        {% endfor %}
+                        <button type="submit" class="btn btn-info">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

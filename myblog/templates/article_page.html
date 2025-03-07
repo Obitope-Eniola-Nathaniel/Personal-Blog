@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Aritcle Page{% endblock %}
+
+{% block body %}
+  <h1 class="display-4">Welcome to My Blog</h1>
+    <!-- From Uiverse.io by alexruix -->
+  <div class="card">
+    <div class="card-details">
+      <p class="text-title">{{ task.title }}</p>
+      <p class="text-body">{{ task.content }}</p>
+      <p>Created @ {{ task.createdAt }}</p>
+    </div>
+    
+    <a href="{% url 'article_page' task.id %}">
+      <button class="card-button">More info</button>
+    </a>
+  </div>
+{% endblock %}
